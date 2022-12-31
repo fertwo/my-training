@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mytraining/l10n/app_localizations.dart';
+import 'package:mytraining/src/main/trainings/trainings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,16 +12,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static TextStyle optionStyle = TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold);
+  static final List<Widget> _widgetOptions = <Widget>[
     Text(
       'Dashboard',
       style: optionStyle,
     ),
-    Text(
-      'My Trainings',
-      style: optionStyle,
-    )
+    const MyTrainingsPage()
   ];
 
   void _onItemTapped(int index) {
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My training app'),
+        title: Text(AppLocalizations.of(context).my_training_app_name),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
