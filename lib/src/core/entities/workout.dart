@@ -1,23 +1,23 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Training {
+class Workout {
   final String title;
 
-  Training(this.title) {
-    validateTraining();
+  Workout(this.title) {
+    validateWorkout();
   }
 
-  void validateTraining() {
+  void validateWorkout() {
     if (title.isEmpty) {
-      throw ArgumentError("invalid training, title can not be empty");
+      throw ArgumentError("invalid workout, title can not be empty");
     }
   }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          other is Training &&
+          other is Workout &&
               runtimeType == other.runtimeType &&
               title == other.title;
 

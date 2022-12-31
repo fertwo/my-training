@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mytraining/src/presentation/trainings/new_training_page.dart';
+import 'package:mytraining/src/presentation/workouts/new_workout_page.dart';
 
-class MyTrainingsPage extends StatefulWidget {
-  const MyTrainingsPage({Key? key}) : super(key: key);
+class MyWorkoutsPage extends StatefulWidget {
+  const MyWorkoutsPage({Key? key}) : super(key: key);
 
   @override
-  State<MyTrainingsPage> createState() => _MyTrainingsPageState();
+  State<MyWorkoutsPage> createState() => _MyWorkoutsPageState();
 }
 
-class _MyTrainingsPageState extends State<MyTrainingsPage> {
+class _MyWorkoutsPageState extends State<MyWorkoutsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const NewTrainingPage(),
+              builder: (context) => const NewWorkoutPage(),
             ),
           );
         },
@@ -26,7 +26,7 @@ class _MyTrainingsPageState extends State<MyTrainingsPage> {
       ),
       body: Center(
         child: Text(
-          'My Trainings',
+          'My Workouts',
           style: TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold)
         ),
       ),
