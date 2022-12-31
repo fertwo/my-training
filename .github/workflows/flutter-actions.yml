@@ -42,4 +42,4 @@ jobs:
         run: flutter build ios --debug
 
       - name: Build Android debug
-          run: flutter build appbundle --debug
+        run: flutter build appbundle --debug
