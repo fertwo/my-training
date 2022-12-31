@@ -1,4 +1,4 @@
-name: Flutter Test
+name: Flutter Test & Build
 on:
   push:
     branches: [ main ]
@@ -39,7 +39,7 @@ jobs:
         run: flutter pub get
 
       - name: Build iOS debug
-        run: flutter build ios --debug
+        run: flutter build ios --debug --no-codesign
 
       - name: Build Android debug
         run: flutter build appbundle --debug
