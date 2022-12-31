@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mytraining/src/main/trainings/new_training_page.dart';
+import 'package:mytraining/src/presentation/trainings/new_training_page.dart';
 
 class MyTrainingsPage extends StatefulWidget {
   const MyTrainingsPage({Key? key}) : super(key: key);

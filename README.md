@@ -1,3 +1,3 @@
-# my training
+# My Training
 
-A new Flutter project for training purporses and learning Flutter.
+A new Flutter project for training purposes and learning Flutter too.

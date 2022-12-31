@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
-import 'package:mytraining/src/main/trainings/trainings_page.dart';
+import 'package:mytraining/src/presentation/trainings/trainings_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

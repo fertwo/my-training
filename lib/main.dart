@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
-import 'package:mytraining/src/main/home/home_page.dart';
+import 'package:mytraining/src/presentation/home/home_page.dart';
 
 void main() {
   runApp(const MyTrainingApplication());
