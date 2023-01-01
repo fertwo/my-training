@@ -1,0 +1,1 @@
+class DuplicateWorkoutExerciseError extends Error {}
