@@ -14,6 +14,8 @@ class SetProgress {
 
   double getProgress() => _progress;
 
+  bool isCompleted() => _repetitionStatusList.every((element) => element == RepetitionStatus.completed);
+
   void completeRepetition() {
     final firstPendingIndex = _repetitionStatusList.indexWhere((element) => element == RepetitionStatus.pending);
     if (_isAValidIndex(firstPendingIndex)) {

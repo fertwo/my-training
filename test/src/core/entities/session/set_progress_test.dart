@@ -85,4 +85,21 @@ main() {
 
     setProgress.getProgress().shouldBeEqualTo(1);
   });
+
+  test('return not completed if there are uncompleted repetitions', () {
+    setProgress = SetProgress(threeRepetitions);
+
+    setProgress.completeRepetition();
+    setProgress.completeRepetition();
+
+    setProgress.isCompleted().shouldBeFalse();
+  });
+
+  test('is completed when all repetitions are completed', () {
+    setProgress = SetProgress(singleRepetition);
+
+    setProgress.completeRepetition();
+
+    setProgress.isCompleted().shouldBeTrue();
+  });
 }
