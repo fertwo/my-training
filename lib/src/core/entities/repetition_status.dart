@@ -1,0 +1,4 @@
+enum RepetitionStatus {
+  pending,
+  completed
+}
