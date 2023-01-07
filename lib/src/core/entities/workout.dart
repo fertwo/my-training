@@ -8,21 +8,21 @@ class Workout {
   final List<WorkoutExercise> exercises;
 
   Workout(this.title, this.exercises) {
-    validateWorkout();
+    _validateWorkout();
   }
 
-  void validateWorkout() {
+  void _validateWorkout() {
     if (title.isEmpty) {
       throw ArgumentError("invalid workout, title can not be empty");
     }
   }
 
   void addExercise(WorkoutExercise newExercise) {
-    validateExerciseIsNotRepeated(newExercise);
+    _validateExerciseIsNotRepeated(newExercise);
     exercises.add(newExercise);
   }
 
-  void validateExerciseIsNotRepeated(WorkoutExercise newExercise) {
+  void _validateExerciseIsNotRepeated(WorkoutExercise newExercise) {
     if (exercises.contains(newExercise)) throw DuplicateWorkoutExerciseError();
   }
 

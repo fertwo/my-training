@@ -9,7 +9,7 @@ class WorkoutSession {
   double _sessionProgress = 0.0;
 
   WorkoutSession._(this.title, this._sessionExercises) {
-    validateExercises();
+    _validateExercises();
   }
 
   static WorkoutSession from(Workout workout) {
@@ -29,22 +29,22 @@ class WorkoutSession {
     _updateSessionProgress();
   }
 
-  Iterable<double> progressList() => _sessionExercises.map((e) => e.getProgress());
-
   double getProgress() => _sessionProgress;
-
-  void _updateSessionProgress() {
-    double globalProgress = progressList().reduce((value, element) => value + element);
-    _sessionProgress = globalProgress / _sessionExercises.length;
-  }
-
-  void validateExercises() {
-    if (_sessionExercises.isEmpty) {
-      throw ArgumentError("a session must have some exercises");
-    }
-  }
 
   bool isCompleted() {
     return _sessionProgress == 1.0;
+  }
+
+  void _updateSessionProgress() {
+    double globalProgress = _progressList().reduce((value, element) => value + element);
+    _sessionProgress = globalProgress / _sessionExercises.length;
+  }
+
+  Iterable<double> _progressList() => _sessionExercises.map((e) => e.getProgress());
+
+  void _validateExercises() {
+    if (_sessionExercises.isEmpty) {
+      throw ArgumentError("a session must have some exercises");
+    }
   }
 }

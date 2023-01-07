@@ -65,7 +65,6 @@ main() {
 
   test('session is completed when completes all session repetitions', () {
     completeAllSessionRepetitions(workoutSession, legPress, arnoldPress);
-
     workoutSession.isCompleted().shouldBeTrue();
   });
 
