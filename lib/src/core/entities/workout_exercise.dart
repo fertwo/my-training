@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
-import 'package:mytraining/src/core/entities/exercise.dart';
-import 'package:mytraining/src/core/entities/exercise_type.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 
 @immutable
 class WorkoutExercise extends Exercise {
@@ -8,7 +9,7 @@ class WorkoutExercise extends Exercise {
   final int repetitions;
   final String load;
 
-  WorkoutExercise(String name, ExerciseType type, this.sets, this.repetitions,
+  WorkoutExercise(ExerciseName name, ExerciseType type, this.sets, this.repetitions,
       this.load) : super(name, type) {
     validateWorkoutExercise();
   }

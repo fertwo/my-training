@@ -1,20 +1,13 @@
 import 'package:flutter/foundation.dart';
-import 'package:mytraining/src/core/entities/exercise_type.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 
 @immutable
 class Exercise {
-  final String name;
+  final ExerciseName name;
   final ExerciseType type;
 
-  Exercise(this.name, this.type) {
-    validateExercise();
-  }
-
-  void validateExercise() {
-    if (name.isEmpty) {
-      throw ArgumentError("invalid exercise, name can not be empty");
-    }
-  }
+  const Exercise(this.name, this.type);
 
   @override
   bool operator ==(Object other) =>

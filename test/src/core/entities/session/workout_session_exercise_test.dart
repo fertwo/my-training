@@ -1,22 +1,24 @@
 import 'package:fluent_assertions/fluent_assertions.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mytraining/src/core/entities/exercise_type.dart';
-import 'package:mytraining/src/core/entities/session/set_progress.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
+import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/core/entities/workout_exercise.dart';
 
 main() {
   late WorkoutSessionExercise sessionExercise;
-  late List<SetProgress> twoSets;
-  final workoutExercise =
-      WorkoutExercise("legs", ExerciseType.olympic, 3, 12, "30KG");
+  const repetitions = 12;
+  const sets = 2;
+  const totalRepetitions = sets * repetitions;
+  final workoutExercise = WorkoutExercise(
+      ExerciseName.legPress, ExerciseType.olympic, sets, repetitions, "30KG");
+  final workoutExerciseWithDifferentLoad = WorkoutExercise(
+      ExerciseName.legPress, ExerciseType.olympic, sets, repetitions, "20KG");
   const halfProgress = 0.5;
-  const totalRepetitions = 6;
   const fullProgress = 1.0;
 
   setUp(() {
-    twoSets = [SetProgress(3), SetProgress(3)];
-    sessionExercise = WorkoutSessionExercise(workoutExercise, twoSets);
+    sessionExercise = WorkoutSessionExercise(workoutExercise);
   });
 
   test('increase progress when completes a repetition', () {
@@ -26,18 +28,54 @@ main() {
   });
 
   test('increase progress when completes all repetition from a set', () {
-    twoSets.first.getRepetitions().forEach((_) {
-      sessionExercise.completeRepetition();
-    });
+    completeSetRepetitions(repetitions, sessionExercise);
 
     sessionExercise.getProgress().shouldBeEqualTo(halfProgress);
   });
 
   test('full progress when completes all repetitions from all sets', () {
-    for (var currentSet in twoSets) {
-      currentSet.getRepetitions().forEach((repetition) => sessionExercise.completeRepetition());
-    }
+    completeAllSessionExercises(sets, repetitions, sessionExercise);
 
     sessionExercise.getProgress().shouldBeEqualTo(fullProgress);
   });
+
+  test('complete more repetitions do nothing', () {
+    completeAllSessionExercises(sets, repetitions, sessionExercise);
+
+    sessionExercise.completeRepetition();
+
+    sessionExercise.getProgress().shouldBeEqualTo(fullProgress);
+  });
+
+  test('test equals', () {
+    WorkoutSessionExercise sameExercise = WorkoutSessionExercise(workoutExercise);
+
+    sessionExercise.shouldBeEqualTo(sameExercise);
+  });
+
+  test('session exercises are the same if workout exercise is the same ', () {
+    WorkoutSessionExercise sameExercise =
+    WorkoutSessionExercise(workoutExercise);
+
+    sessionExercise.shouldBeEqualTo(sameExercise);
+  });
+
+  test('session exercises are not the same if workout load is different', () {
+    WorkoutSessionExercise otherExercise =
+    WorkoutSessionExercise(workoutExerciseWithDifferentLoad);
+
+    sessionExercise.shouldNotBeEqualTo(otherExercise);
+  });
+}
+
+void completeAllSessionExercises(int sets, int repetitions, WorkoutSessionExercise sessionExercise) {
+  for (int i = 0; i < sets; i++) {
+    completeSetRepetitions(repetitions, sessionExercise);
+  }
+}
+
+void completeSetRepetitions(int repetitions, WorkoutSessionExercise sessionExercise) {
+  for (int i = 0; i < repetitions; i++) {
+    sessionExercise.completeRepetition();
+  }
 }
