@@ -1,6 +1,6 @@
 import 'package:fluent_assertions/fluent_assertions.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mytraining/src/core/entities/repetition_status.dart';
+import 'package:mytraining/src/core/entities/session/repetition_status.dart';
 import 'package:mytraining/src/core/entities/session/set_progress.dart';
 
 main() {

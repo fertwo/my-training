@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 import 'package:mytraining/src/core/entities/session/workout_session.dart';
-import 'package:mytraining/src/core/entities/workout.dart';
-import 'package:mytraining/src/core/entities/workout_exercise.dart';
+import 'package:mytraining/src/core/entities/workout/workout.dart';
+import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 main() {
   late WorkoutSession workoutSession;

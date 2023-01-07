@@ -1,4 +1,4 @@
-import 'package:mytraining/src/core/entities/repetition_status.dart';
+import 'package:mytraining/src/core/entities/session/repetition_status.dart';
 
 class SetProgress {
   double _progress = 0;

@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
-import 'package:mytraining/src/core/entities/workout.dart';
-import 'package:mytraining/src/core/entities/workout_exercise.dart';
+import 'package:mytraining/src/core/entities/workout/workout.dart';
+import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 class WorkoutSession {
   final String title;

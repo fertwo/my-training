@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:mytraining/src/core/entities/workout_exercise.dart';
+import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 import 'package:mytraining/src/core/error/duplicate_workout_exercise_error.dart';
 
 @immutable

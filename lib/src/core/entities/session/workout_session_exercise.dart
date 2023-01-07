@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:mytraining/src/core/entities/session/set_progress.dart';
-import 'package:mytraining/src/core/entities/workout_exercise.dart';
+import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 class WorkoutSessionExercise {
   final WorkoutExercise workoutExercise;
