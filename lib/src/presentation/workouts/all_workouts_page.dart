@@ -6,6 +6,7 @@ import 'package:mytraining/src/infrastructure/factory/actions_factory.dart';
 import 'package:mytraining/src/presentation/formatter/workout_formatter.dart';
 import 'package:mytraining/src/presentation/workouts/create/create_workout_page.dart';
 import 'package:mytraining/src/presentation/workouts/workouts_view_model.dart';
+import 'package:mytraining/src/ui/app_colors.dart';
 import 'package:provider/provider.dart';
 
 class WorkoutsPage extends StatefulWidget {
@@ -51,6 +52,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
 
   Card _buildWorkoutCard(Workout workout) {
     return Card(
+      color: AppColors.workoutCardBackground,
       child: Padding(
         padding:
             EdgeInsets.only(left: 8.w, right: 8.w, top: 12.h, bottom: 12.h),
