@@ -26,6 +26,10 @@ class ExerciseProgress {
     _setStatusList = _setStatusList.map((e) => e = SetStatus.completed).toList();
   }
 
+  void restart() {
+    _setStatusList = _setStatusList.map((e) => e = SetStatus.pending).toList();
+  }
+
   bool _isAValidIndex(int firstPendingIndex) => firstPendingIndex >= 0;
 
   void _createAllSetsAsPending(int sets) {

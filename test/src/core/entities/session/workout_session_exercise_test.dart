@@ -60,10 +60,18 @@ main() {
     sessionExercise.shouldNotBeEqualTo(otherExercise);
   });
 
-  test('complete all sets of an exercise set', () {
+  test('complete all sets of an exercise', () {
     sessionExercise.complete();
 
     sessionExercise.getProgress().shouldBeEqualTo(fullProgress);
+  });
+
+  test('restart all sets of an exercise', () {
+    sessionExercise.complete();
+
+    sessionExercise.restart();
+
+    sessionExercise.getProgress().shouldBeEqualTo(0);
   });
 }
 

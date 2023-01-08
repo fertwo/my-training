@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/ui/app_colors.dart';
 
 class ExerciseSwitchWidget extends StatefulWidget {
-  const ExerciseSwitchWidget({Key? key}) : super(key: key);
+  final WorkoutSessionExercise workoutSessionExercise;
+
+  const ExerciseSwitchWidget(this.workoutSessionExercise, {Key? key})
+      : super(key: key);
 
   @override
   State<ExerciseSwitchWidget> createState() => _ExerciseSwitchWidgetState();
 }
 
 class _ExerciseSwitchWidgetState extends State<ExerciseSwitchWidget> {
-  bool isSelected = true;
+  late bool isSelected;
+
+  @override
+  void initState() {
+    isSelected = widget.workoutSessionExercise.isCompleted();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +29,9 @@ class _ExerciseSwitchWidgetState extends State<ExerciseSwitchWidget> {
       onChanged: (bool value) {
         setState(() {
           isSelected = value;
+          isSelected
+              ? widget.workoutSessionExercise.complete()
+              : widget.workoutSessionExercise.restart();
         });
       },
     );

@@ -90,7 +90,7 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
                           flex: 20,
                           child: _buildExerciseInfoWith(
                               workoutSessionExercise.load(), "[Load]")),
-                      const Expanded(flex: 15, child: ExerciseSwitchWidget())
+                      Expanded(flex: 15, child: ExerciseSwitchWidget(workoutSessionExercise))
                     ]),
               )
             ],
