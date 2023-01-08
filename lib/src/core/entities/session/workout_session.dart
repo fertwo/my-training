@@ -5,10 +5,10 @@ import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 class WorkoutSession {
   final String title;
-  final Set<WorkoutSessionExercise> _sessionExercises;
+  final Set<WorkoutSessionExercise> sessionExercises;
   double _sessionProgress = 0.0;
 
-  WorkoutSession._(this.title, this._sessionExercises) {
+  WorkoutSession._(this.title, this.sessionExercises) {
     _validateExercises();
   }
 
@@ -21,7 +21,7 @@ class WorkoutSession {
   }
 
   void completeRepetition(WorkoutExercise workoutExercise) {
-    _sessionExercises
+    sessionExercises
         .firstWhereOrNull((sessionExercise) =>
             sessionExercise.workoutExercise == workoutExercise)
         ?.completeRepetition();
@@ -37,13 +37,13 @@ class WorkoutSession {
 
   void _updateSessionProgress() {
     double globalProgress = _progressList().reduce((value, element) => value + element);
-    _sessionProgress = globalProgress / _sessionExercises.length;
+    _sessionProgress = globalProgress / sessionExercises.length;
   }
 
-  Iterable<double> _progressList() => _sessionExercises.map((e) => e.getProgress());
+  Iterable<double> _progressList() => sessionExercises.map((e) => e.getProgress());
 
   void _validateExercises() {
-    if (_sessionExercises.isEmpty) {
+    if (sessionExercises.isEmpty) {
       throw ArgumentError("a session must have some exercises");
     }
   }

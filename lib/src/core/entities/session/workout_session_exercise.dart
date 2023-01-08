@@ -12,6 +12,14 @@ class WorkoutSessionExercise {
       return SetProgress(workoutExercise.repetitions);
     });
   }
+
+  String name() => workoutExercise.name.name;
+
+  int repetitions() => workoutExercise.repetitions;
+
+  int sets() => workoutExercise.sets;
+
+  String load() => workoutExercise.load;
   
   void completeRepetition() {
     if (isCompleted()) return;

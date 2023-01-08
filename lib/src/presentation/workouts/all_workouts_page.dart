@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
-import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 import 'package:mytraining/src/infrastructure/factory/actions_factory.dart';
 import 'package:mytraining/src/presentation/formatter/workout_formatter.dart';
 import 'package:mytraining/src/presentation/workouts/create/create_workout_page.dart';
+import 'package:mytraining/src/presentation/workouts/session/workout_session_page.dart';
 import 'package:mytraining/src/presentation/workouts/workouts_view_model.dart';
 import 'package:mytraining/src/ui/app_colors.dart';
 import 'package:provider/provider.dart';
@@ -53,45 +53,50 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
   Card _buildWorkoutCard(Workout workout) {
     return Card(
       color: AppColors.workoutCardBackground,
-      child: Padding(
-        padding:
-            EdgeInsets.only(left: 8.w, right: 8.w, top: 12.h, bottom: 12.h),
-        child: Column(
-          children: [
-            Text(workout.title,
-                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
-            Padding(
-              padding: EdgeInsets.only(top: 8.h),
-              child: Row(
-                children: [
-                  Column(children: [
-                    Text("${workout.exercises.length}", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
-                    Text("[exercises]", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold))
-                  ]),
-                  Expanded(
-                      child: Column(
-                    children: [
-                      Text("[Muscles]",
-                          style: TextStyle(
-                              fontSize: 13.sp, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 10.h),
-                      Padding(
-                        padding: EdgeInsets.only(left: 8.w, right: 8.w),
-                        child: Text(WorkoutFormatter.getExerciseTypesFrom(workout)),
-                      )
-                    ],
-                  ))
-                ],
-              ),
-            )
-          ],
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => WorkoutSessionPage(workout),
+            ),
+          );
+        },
+        child: Padding(
+          padding:
+              EdgeInsets.only(left: 8.w, right: 8.w, top: 12.h, bottom: 12.h),
+          child: Column(
+            children: [
+              Text(workout.title,
+                  style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
+              Padding(
+                padding: EdgeInsets.only(top: 8.h),
+                child: Row(
+                  children: [
+                    Column(children: [
+                      Text("${workout.exercises.length}", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
+                      Text("[exercises]", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold))
+                    ]),
+                    Expanded(
+                        child: Column(
+                      children: [
+                        Text("[Muscles]",
+                            style: TextStyle(
+                                fontSize: 13.sp, fontWeight: FontWeight.bold)),
+                        SizedBox(height: 10.h),
+                        Padding(
+                          padding: EdgeInsets.only(left: 8.w, right: 8.w),
+                          child: Text(WorkoutFormatter.getExerciseTypesFrom(workout)),
+                        )
+                      ],
+                    ))
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
-  }
-
-  Text _buildExerciseWidget(WorkoutExercise exercise) {
-    return Text("${exercise.name.name}/");
   }
 
   FloatingActionButton _buildFloatingActionButton(BuildContext context) {
