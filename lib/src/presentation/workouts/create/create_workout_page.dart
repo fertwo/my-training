@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class NewWorkoutPage extends StatefulWidget {
-  const NewWorkoutPage({Key? key}) : super(key: key);
+class CreateWorkoutPage extends StatefulWidget {
+  const CreateWorkoutPage({Key? key}) : super(key: key);
 
   @override
-  State<NewWorkoutPage> createState() => _NewWorkoutPageState();
+  State<CreateWorkoutPage> createState() => _CreateWorkoutPageState();
 }
 
-class _NewWorkoutPageState extends State<NewWorkoutPage> {
+class _CreateWorkoutPageState extends State<CreateWorkoutPage> {
   @override
   Widget build(BuildContext context) {
     return Material(

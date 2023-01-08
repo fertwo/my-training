@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
-import 'package:mytraining/src/presentation/workouts/trainings_page.dart';
+import 'package:mytraining/src/presentation/workouts/all_workouts_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,11 +14,14 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static TextStyle optionStyle = TextStyle(fontSize: 30.sp, fontWeight: FontWeight.bold);
   static final List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Dashboard',
-      style: optionStyle,
-    ),
-    const MyWorkoutsPage()
+    const WorkoutsPage(),
+    Padding(
+      padding: EdgeInsets.all(12.w),
+      child: Text(
+        'My Stats Page',
+        style: optionStyle,
+      ),
+    )
   ];
 
   void _onItemTapped(int index) {
@@ -40,15 +43,15 @@ class _HomePageState extends State<HomePage> {
         type: BottomNavigationBarType.shifting,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.accessibility_new),
+            label: 'Workouts',
             backgroundColor: Colors.blueAccent,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility_new),
-            label: 'Workouts',
-            backgroundColor: Colors.blueGrey,
-          ),
+            icon: Icon(Icons.area_chart),
+            label: 'My Stats',
+            backgroundColor: Colors.deepPurpleAccent,
+          )
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.amber[800],
