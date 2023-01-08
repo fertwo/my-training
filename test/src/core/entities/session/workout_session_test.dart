@@ -45,42 +45,36 @@ main() {
     }
   });
 
-  test('complete exercise repetition', () {
-    workoutSession.completeRepetition(legPress);
-
-    workoutSession.getProgress().shouldBeEqualTo(1/4);
-  });
-
   test('completing half session repetitions should return half progress', () {
-    completeAllExerciseRepetitions(workoutSession, legPress);
+    completeAllExerciseSets(workoutSession, legPress);
 
     workoutSession.getProgress().shouldBeEqualTo(halfProgress);
   });
 
-  test('complete all session repetitions', () {
-    completeAllSessionRepetitions(workoutSession, legPress, arnoldPress);
+  test('complete all session sets', () {
+    completeAllSessionSets(workoutSession, legPress, arnoldPress);
 
     workoutSession.getProgress().shouldBeEqualTo(fullProgress);
   });
 
-  test('session is completed when completes all session repetitions', () {
-    completeAllSessionRepetitions(workoutSession, legPress, arnoldPress);
+  test('session is completed when completes all session sets', () {
+    completeAllSessionSets(workoutSession, legPress, arnoldPress);
     workoutSession.isCompleted().shouldBeTrue();
   });
 
-  test('session is not completed when remains some repetitions to do', () {
-    workoutSession.completeRepetition(legPress);
+  test('session is not completed when remains some sets to do', () {
+    workoutSession.completeSet(legPress);
 
     workoutSession.isCompleted().shouldBeFalse();
   });
 }
 
-void completeAllExerciseRepetitions(WorkoutSession workoutSession, WorkoutExercise legPress) {
-  workoutSession.completeRepetition(legPress);
-  workoutSession.completeRepetition(legPress);
+void completeAllExerciseSets(WorkoutSession workoutSession, WorkoutExercise legPress) {
+  workoutSession.completeSet(legPress);
+  workoutSession.completeSet(legPress);
 }
 
-void completeAllSessionRepetitions(WorkoutSession workoutSession, WorkoutExercise legPress, WorkoutExercise arnoldPress) {
-  completeAllExerciseRepetitions(workoutSession, legPress);
-  completeAllExerciseRepetitions(workoutSession, arnoldPress);
+void completeAllSessionSets(WorkoutSession workoutSession, WorkoutExercise legPress, WorkoutExercise arnoldPress) {
+  completeAllExerciseSets(workoutSession, legPress);
+  completeAllExerciseSets(workoutSession, arnoldPress);
 }

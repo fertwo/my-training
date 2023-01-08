@@ -1,49 +1,42 @@
-import 'package:collection/collection.dart';
-import 'package:mytraining/src/core/entities/session/set_progress.dart';
+import 'package:mytraining/src/core/entities/session/exercise_progress.dart';
 import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 class WorkoutSessionExercise {
-  final WorkoutExercise workoutExercise;
-  late List<SetProgress> _setProgressList;
-  double _progress = 0;
+  final WorkoutExercise _workoutExercise;
+  late ExerciseProgress _exerciseProgress;
 
-  WorkoutSessionExercise(this.workoutExercise) {
-    _setProgressList = List<SetProgress>.generate(workoutExercise.sets, (_) {
-      return SetProgress(workoutExercise.repetitions);
-    });
+  WorkoutSessionExercise(this._workoutExercise) {
+    _exerciseProgress = ExerciseProgress(_workoutExercise.sets);
   }
 
-  String name() => workoutExercise.name.name;
+  String name() => _workoutExercise.name.name;
 
-  int repetitions() => workoutExercise.repetitions;
+  int repetitions() => _workoutExercise.repetitions;
 
-  int sets() => workoutExercise.sets;
+  int sets() => _workoutExercise.sets;
 
-  String load() => workoutExercise.load;
-  
-  void completeRepetition() {
+  String load() => _workoutExercise.load;
+
+  void completeSet() {
     if (isCompleted()) return;
-
-    _setProgressList.firstWhereOrNull((element) => !element.isCompleted())?.completeRepetition();
-
-    var globalProgress = 0.0;
-    for (var currentSet in _setProgressList) {
-      globalProgress += currentSet.getProgress();
-    }
-    _progress = globalProgress/ _setProgressList.length;
+    _exerciseProgress.completeSet();
   }
 
-  bool isCompleted() => _progress == 1.0;
+  bool isCompleted() => _exerciseProgress.isCompleted();
 
-  double getProgress() => _progress;
+  double getProgress() => _exerciseProgress.getProgress();
+
+  void complete() {
+    _exerciseProgress.complete();
+  }
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is WorkoutSessionExercise &&
           runtimeType == other.runtimeType &&
-          workoutExercise == other.workoutExercise;
+          _workoutExercise == other._workoutExercise;
 
   @override
-  int get hashCode => workoutExercise.hashCode;
+  int get hashCode => _workoutExercise.hashCode;
 }

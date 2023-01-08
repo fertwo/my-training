@@ -20,11 +20,11 @@ class WorkoutSession {
             .toSet());
   }
 
-  void completeRepetition(WorkoutExercise workoutExercise) {
+  void completeSet(WorkoutExercise workoutExercise) {
     sessionExercises
         .firstWhereOrNull((sessionExercise) =>
-            sessionExercise.workoutExercise == workoutExercise)
-        ?.completeRepetition();
+            sessionExercise.name() == workoutExercise.name.name)
+        ?.completeSet();
 
     _updateSessionProgress();
   }

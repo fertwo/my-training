@@ -1,4 +1,4 @@
-enum RepetitionStatus {
+enum SetStatus {
   pending,
   completed
 }

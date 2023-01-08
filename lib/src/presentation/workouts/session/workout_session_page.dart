@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
+import 'package:mytraining/src/presentation/workouts/session/exercise_switch.dart';
 import 'package:mytraining/src/presentation/workouts/session/workout_session_view_model.dart';
 import 'package:mytraining/src/ui/app_colors.dart';
 import 'package:provider/provider.dart';
@@ -76,19 +77,20 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
                               "assets/lottie/workout_animation_example.json",
                               width: 60.w)),
                       Expanded(
-                          flex: 25,
+                          flex: 20,
                           child: _buildExerciseInfoWith(
                               workoutSessionExercise.sets().toString(),
                               "[Sets]")),
                       Expanded(
-                          flex: 25,
+                          flex: 20,
                           child: _buildExerciseInfoWith(
                               workoutSessionExercise.repetitions().toString(),
                               "[Repetitions]")),
                       Expanded(
-                          flex: 25,
+                          flex: 20,
                           child: _buildExerciseInfoWith(
-                              workoutSessionExercise.load(), "[Load]"))
+                              workoutSessionExercise.load(), "[Load]")),
+                      const Expanded(flex: 15, child: ExerciseSwitchWidget())
                     ]),
               )
             ],
