@@ -4,8 +4,12 @@ import 'package:mytraining/src/ui/app_colors.dart';
 
 class ExerciseSwitchWidget extends StatefulWidget {
   final WorkoutSessionExercise workoutSessionExercise;
+  final VoidCallback _onExerciseCompleted;
+  final VoidCallback _onExerciseRestarted;
 
-  const ExerciseSwitchWidget(this.workoutSessionExercise, {Key? key})
+  const ExerciseSwitchWidget(this.workoutSessionExercise,
+      this._onExerciseCompleted, this._onExerciseRestarted,
+      {Key? key})
       : super(key: key);
 
   @override
@@ -30,8 +34,8 @@ class _ExerciseSwitchWidgetState extends State<ExerciseSwitchWidget> {
         setState(() {
           isSelected = value;
           isSelected
-              ? widget.workoutSessionExercise.complete()
-              : widget.workoutSessionExercise.restart();
+              ? widget._onExerciseCompleted()
+              : widget._onExerciseRestarted();
         });
       },
     );

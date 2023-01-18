@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
+import 'package:mytraining/src/presentation/workouts/all_workouts_page.dart';
 import 'package:mytraining/src/presentation/workouts/session/exercise_switch.dart';
 import 'package:mytraining/src/presentation/workouts/session/workout_session_view_model.dart';
 import 'package:mytraining/src/ui/app_colors.dart';
@@ -23,8 +24,11 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
 
   @override
   void initState() {
-    _workoutSessionViewModel = WorkoutSessionViewModel();
+    _workoutSessionViewModel = WorkoutSessionViewModel(() {
+      _showSessionFinishedDialog();
+    });
     _workoutSessionViewModel.onViewInitialized(widget._workout);
+
     super.initState();
   }
 
@@ -90,7 +94,13 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
                           flex: 20,
                           child: _buildExerciseInfoWith(
                               workoutSessionExercise.load(), "[Load]")),
-                      Expanded(flex: 15, child: ExerciseSwitchWidget(workoutSessionExercise))
+                      Expanded(
+                          flex: 15,
+                          child: ExerciseSwitchWidget(
+                              workoutSessionExercise,
+                              () => onExerciseCompleted(workoutSessionExercise),
+                              () =>
+                                  onExerciseRestarted(workoutSessionExercise)))
                     ]),
               )
             ],
@@ -99,6 +109,12 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
       ),
     );
   }
+
+  void onExerciseCompleted(WorkoutSessionExercise exercise) =>
+      _workoutSessionViewModel.completeExercise(exercise);
+
+  void onExerciseRestarted(WorkoutSessionExercise exercise) =>
+      _workoutSessionViewModel.restartExercise(exercise);
 
   Column _buildExerciseInfoWith(String value, String info) {
     return Column(
@@ -112,5 +128,29 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
             child: AutoSizeText(info, maxLines: 1)),
       ],
     );
+  }
+
+  void _showSessionFinishedDialog() {
+    showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+              title: const Text('[Congratulations]'),
+              content: const Text('[Workout finished!!]'),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () => _closePage(context),
+                  child: const Text('OK'),
+                ),
+              ],
+            ));
+  }
+
+  void _closePage(BuildContext context) {
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (BuildContext context) {
+      return const WorkoutsPage();
+    }), (r) {
+      return false;
+    });
   }
 }

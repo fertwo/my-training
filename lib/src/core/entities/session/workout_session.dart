@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
-import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 class WorkoutSession {
   final String title;
@@ -20,11 +19,29 @@ class WorkoutSession {
             .toSet());
   }
 
-  void completeSet(WorkoutExercise workoutExercise) {
+  void completeSet(WorkoutSessionExercise sessionExercise) {
     sessionExercises
-        .firstWhereOrNull((sessionExercise) =>
-            sessionExercise.name() == workoutExercise.name.name)
+        .firstWhereOrNull((currentSessionExercise) =>
+          currentSessionExercise == sessionExercise)
         ?.completeSet();
+
+    _updateSessionProgress();
+  }
+
+  void completeExercise(WorkoutSessionExercise sessionExercise) {
+    sessionExercises
+        .firstWhereOrNull((currentSessionExercise) =>
+    currentSessionExercise == sessionExercise)
+        ?.complete();
+
+    _updateSessionProgress();
+  }
+
+  void restartExercise(WorkoutSessionExercise sessionExercise) {
+    sessionExercises
+        .firstWhereOrNull((currentSessionExercise) =>
+    currentSessionExercise == sessionExercise)
+        ?.restart();
 
     _updateSessionProgress();
   }
