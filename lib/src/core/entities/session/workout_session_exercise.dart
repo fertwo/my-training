@@ -38,6 +38,10 @@ class WorkoutSessionExercise {
     _exerciseProgress.restart();
   }
 
+  WorkoutExercise getWorkoutExercise() {
+    return _workoutExercise;
+  }
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||

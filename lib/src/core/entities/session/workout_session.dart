@@ -3,16 +3,18 @@ import 'package:mytraining/src/core/entities/session/workout_session_exercise.da
 import 'package:mytraining/src/core/entities/workout/workout.dart';
 
 class WorkoutSession {
+  final int id;
   final String title;
   final Set<WorkoutSessionExercise> sessionExercises;
   double _sessionProgress = 0.0;
 
-  WorkoutSession._(this.title, this.sessionExercises) {
+  WorkoutSession._(this.id, this.title, this.sessionExercises) {
     _validateExercises();
   }
 
   static WorkoutSession from(Workout workout) {
     return WorkoutSession._(
+        workout.id,
         workout.title,
         workout.exercises
             .map((exercise) => WorkoutSessionExercise(exercise))
@@ -50,6 +52,10 @@ class WorkoutSession {
 
   bool isCompleted() {
     return _sessionProgress == 1.0;
+  }
+
+  Workout toWorkout() {
+    return Workout(id, title, sessionExercises.map((e) => e.getWorkoutExercise()).toList());
   }
 
   void _updateSessionProgress() {
