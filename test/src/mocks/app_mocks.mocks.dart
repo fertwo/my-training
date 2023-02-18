@@ -3,11 +3,16 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mytraining/src/core/action/get_workouts.dart' as _i2;
-import 'package:mytraining/src/core/entities/workout/workout.dart' as _i4;
+import 'package:mytraining/src/core/action/finish_workout_session.dart' as _i6;
+import 'package:mytraining/src/core/action/get_workouts.dart' as _i3;
+import 'package:mytraining/src/core/entities/session/workout_session.dart'
+    as _i7;
+import 'package:mytraining/src/core/entities/workout/workout.dart' as _i5;
+import 'package:mytraining/src/core/repository/workout_session_repository.dart'
+    as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -20,20 +25,58 @@ import 'package:mytraining/src/core/entities/workout/workout.dart' as _i4;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeWorkoutSessionRepository_0 extends _i1.SmartFake
+    implements _i2.WorkoutSessionRepository {
+  _FakeWorkoutSessionRepository_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [GetWorkouts].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockGetWorkouts extends _i1.Mock implements _i2.GetWorkouts {
+class MockGetWorkouts extends _i1.Mock implements _i3.GetWorkouts {
   MockGetWorkouts() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<List<_i4.Workout>> call() => (super.noSuchMethod(
+  _i4.Future<List<_i5.Workout>> call() => (super.noSuchMethod(
         Invocation.method(
           #call,
           [],
         ),
-        returnValue: _i3.Future<List<_i4.Workout>>.value(<_i4.Workout>[]),
-      ) as _i3.Future<List<_i4.Workout>>);
+        returnValue: _i4.Future<List<_i5.Workout>>.value(<_i5.Workout>[]),
+      ) as _i4.Future<List<_i5.Workout>>);
+}
+
+/// A class which mocks [FinishWorkoutSession].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFinishWorkoutSession extends _i1.Mock
+    implements _i6.FinishWorkoutSession {
+  MockFinishWorkoutSession() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i2.WorkoutSessionRepository get repository => (super.noSuchMethod(
+        Invocation.getter(#repository),
+        returnValue: _FakeWorkoutSessionRepository_0(
+          this,
+          Invocation.getter(#repository),
+        ),
+      ) as _i2.WorkoutSessionRepository);
+  @override
+  void call(_i7.WorkoutSession? workoutSession) => super.noSuchMethod(
+        Invocation.method(
+          #call,
+          [workoutSession],
+        ),
+        returnValueForMissingStub: null,
+      );
 }

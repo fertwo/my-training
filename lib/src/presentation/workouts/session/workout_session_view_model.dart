@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:mytraining/src/core/action/finish_workout_session.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 import 'package:mytraining/src/core/entities/session/workout_session.dart';
@@ -8,8 +9,9 @@ import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
 class WorkoutSessionViewModel with ChangeNotifier {
   final VoidCallback _onSessionFinishedCallback;
+  final FinishWorkoutSession _finishWorkoutSession;
 
-  WorkoutSessionViewModel(this._onSessionFinishedCallback);
+  WorkoutSessionViewModel(this._onSessionFinishedCallback, this._finishWorkoutSession);
 
   WorkoutSession _workoutSession = WorkoutSession.from(Workout("test", [
     WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, "41kg")
@@ -23,18 +25,19 @@ class WorkoutSessionViewModel with ChangeNotifier {
     notifyListeners();
   }
 
-  void completeExercise(WorkoutSessionExercise exercise) {
+  void completeExerciseClicked(WorkoutSessionExercise exercise) {
     _workoutSession.completeExercise(exercise);
-    notifyIfSessionIsFinished();
+    _notifyIfSessionIsFinished();
   }
 
-  void notifyIfSessionIsFinished() {
+  void restartExerciseClicked(WorkoutSessionExercise exercise) {
+    _workoutSession.restartExercise(exercise);
+  }
+
+  void _notifyIfSessionIsFinished() {
     if (_workoutSession.isCompleted()) {
       _onSessionFinishedCallback();
+      _finishWorkoutSession.call(workoutSession);
     }
-  }
-
-  void restartExercise(WorkoutSessionExercise exercise) {
-    _workoutSession.restartExercise(exercise);
   }
 }

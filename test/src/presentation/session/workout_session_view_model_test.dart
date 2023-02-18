@@ -9,6 +9,7 @@ import 'package:mytraining/src/core/entities/workout/workout.dart';
 import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 import 'package:mytraining/src/presentation/workouts/session/workout_session_view_model.dart';
 
+import '../../mocks/app_mocks.mocks.dart';
 import '../../mocks/mock_callback.dart';
 
 main() {
@@ -26,14 +27,16 @@ main() {
   late List<WorkoutExercise> exercises;
   late Set<WorkoutSessionExercise> sessionExercises;
   late MockCallback callback;
+  late MockFinishWorkoutSession finishWorkout;
 
   setUp(() {
     exercises = [legPress, arnoldPress];
     sessionExercises = {legPressSessionExercise, arnoldPressSessionExercise};
     sessionFinishedCallback = MockCallback();
     callback = MockCallback();
+    finishWorkout = MockFinishWorkoutSession();
     aWorkout = Workout("workoutTitle", exercises);
-    viewModel = WorkoutSessionViewModel(sessionFinishedCallback);
+    viewModel = WorkoutSessionViewModel(sessionFinishedCallback, finishWorkout);
   });
 
   test('create session from workout when view is initialized', () {
@@ -66,12 +69,25 @@ main() {
     fakeAsync((async) {
       viewModel.onViewInitialized(aWorkout);
 
-      viewModel.completeExercise(legPressSessionExercise);
-      viewModel.completeExercise(arnoldPressSessionExercise);
+      viewModel.completeExerciseClicked(legPressSessionExercise);
+      viewModel.completeExerciseClicked(arnoldPressSessionExercise);
 
       async.flushMicrotasks();
 
       verify(sessionFinishedCallback()).called(1);
+    });
+  });
+
+  test('finish workout when completes all exercises', () {
+    fakeAsync((async) {
+      viewModel.onViewInitialized(aWorkout);
+
+      viewModel.completeExerciseClicked(legPressSessionExercise);
+      viewModel.completeExerciseClicked(arnoldPressSessionExercise);
+
+      async.flushMicrotasks();
+
+      verify(finishWorkout(any)).called(1);
     });
   });
 }
