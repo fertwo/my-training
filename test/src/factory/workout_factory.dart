@@ -21,4 +21,12 @@ class WorkoutFactory {
       ])
     ];
   }
+
+  static Workout createAWorkout({required String title}) {
+    return Workout(title, [
+      WorkoutExercise(
+          ExerciseName.legPress, ExerciseType.legs, 3, 12, "39kg"),
+      WorkoutExercise(ExerciseName.chestFly, ExerciseType.chest, 4, 8, "41kg")
+    ]);
+  }
 }

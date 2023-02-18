@@ -2,10 +2,15 @@ import 'package:mytraining/src/core/entities/session/workout_session.dart';
 import 'package:mytraining/src/core/repository/workout_session_repository.dart';
 
 class InMemoryWorkoutSessionRepository implements WorkoutSessionRepository {
-  WorkoutSession? workoutSession;
+  List<WorkoutSession> workoutSessions = [];
 
   @override
-  Future<WorkoutSession> save(WorkoutSession workoutSession) {
-    return Future.value(this.workoutSession = workoutSession);
+  void save(WorkoutSession workoutSession) {
+    workoutSessions.add(workoutSession);
+  }
+
+  @override
+  List<WorkoutSession> getAll() {
+    return workoutSessions;
   }
 }
