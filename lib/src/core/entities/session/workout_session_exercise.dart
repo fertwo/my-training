@@ -15,7 +15,7 @@ class WorkoutSessionExercise {
 
   int sets() => _workoutExercise.sets;
 
-  String load() => _workoutExercise.load;
+  int load() => _workoutExercise.load;
 
   void completeSet() {
     if (isCompleted()) return;
@@ -25,6 +25,10 @@ class WorkoutSessionExercise {
   bool isCompleted() => _exerciseProgress.isCompleted();
 
   double getProgress() => _exerciseProgress.getProgress();
+
+  void updateLoad(int newLoad) {
+    _workoutExercise.updateLoad(newLoad);
+  }
 
   void complete() {
     _exerciseProgress.complete();

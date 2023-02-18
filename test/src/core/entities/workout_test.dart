@@ -11,15 +11,15 @@ main() {
   const aValidTitle = "A Workout Title";
   const anEmptyTitle = "";
   late List<WorkoutExercise> exercises;
-  final newExercise = WorkoutExercise(ExerciseName.arnoldPress, ExerciseType.arms, 3, 12, "10KG");
-  final sameExerciseDifferentLoad = WorkoutExercise(ExerciseName.arnoldPress, ExerciseType.arms, 3, 12, "20KG");
+  final newExercise = WorkoutExercise(ExerciseName.arnoldPress, ExerciseType.arms, 3, 12, 10);
+  final sameExerciseDifferentLoad = WorkoutExercise(ExerciseName.arnoldPress, ExerciseType.arms, 3, 12, 20);
 
   setUp(() {
     exercises = [
       WorkoutExercise(
-          ExerciseName.legPress, ExerciseType.olympic, 3, 12, "30KG"),
+          ExerciseName.legPress, ExerciseType.olympic, 3, 12, 30),
       WorkoutExercise(
-          ExerciseName.benchPress, ExerciseType.shoulders, 3, 12, "20KG")
+          ExerciseName.benchPress, ExerciseType.shoulders, 3, 12, 20)
     ];
     workoutWithNoExercises = Workout(aValidTitle, List.empty(growable: true));
     aWorkout = Workout(aValidTitle, exercises);

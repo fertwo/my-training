@@ -17,11 +17,11 @@ main() {
   double halfProgress = 0.5;
   double fullProgress = 1;
   final WorkoutExercise heavyLegPress = WorkoutExercise(
-      ExerciseName.legPress, ExerciseType.olympic, 2, 2, "30KG");
+      ExerciseName.legPress, ExerciseType.olympic, 2, 2, 30);
   final WorkoutExercise legPress = WorkoutExercise(
-      ExerciseName.legPress, ExerciseType.olympic, 1, 2, "30KG");
+      ExerciseName.legPress, ExerciseType.olympic, 1, 2, 30);
   final WorkoutExercise arnoldPress = WorkoutExercise(
-      ExerciseName.arnoldPress, ExerciseType.shoulders, 1, 2, "30KG");
+      ExerciseName.arnoldPress, ExerciseType.shoulders, 1, 2, 30);
   final WorkoutSessionExercise legPressSessionExercise =
       WorkoutSessionExercise(legPress);
   final WorkoutSessionExercise arnoldPressSessionExercise =

@@ -1,4 +1,3 @@
-import 'package:fake_async/fake_async.dart';
 import 'package:fluent_assertions/fluent_assertions.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -15,9 +14,10 @@ import '../../mocks/mock_callback.dart';
 main() {
   late WorkoutSessionViewModel viewModel;
   final WorkoutExercise legPress = WorkoutExercise(
-      ExerciseName.legPress, ExerciseType.olympic, 1, 2, "30KG");
+      ExerciseName.legPress, ExerciseType.olympic, 1, 2, 30);
   final WorkoutExercise arnoldPress = WorkoutExercise(
-      ExerciseName.arnoldPress, ExerciseType.shoulders, 1, 2, "30KG");
+      ExerciseName.arnoldPress, ExerciseType.shoulders, 1, 2, 30);
+  const newLoad = 88;
   final WorkoutSessionExercise legPressSessionExercise =
       WorkoutSessionExercise(legPress);
   final WorkoutSessionExercise arnoldPressSessionExercise =
@@ -46,48 +46,46 @@ main() {
   });
 
   test('notify listeners when view is initialized', () {
-    fakeAsync((async) {
-      viewModel.addListener(callback);
-      viewModel.onViewInitialized(aWorkout);
+    viewModel.addListener(callback);
+    viewModel.onViewInitialized(aWorkout);
 
-      async.flushMicrotasks();
-
-      verify(callback()).called(1);
-    });
+    verify(callback()).called(1);
   });
 
   test('session is not finished when view is initialized', () {
-    fakeAsync((async) {
-      viewModel.onViewInitialized(aWorkout);
-      async.flushMicrotasks();
+    viewModel.onViewInitialized(aWorkout);
 
-      verifyNever(sessionFinishedCallback());
-    });
+    verifyNever(sessionFinishedCallback());
   });
 
   test('session is finished when completes all exercises', () {
-    fakeAsync((async) {
-      viewModel.onViewInitialized(aWorkout);
+    viewModel.onViewInitialized(aWorkout);
 
-      viewModel.completeExerciseClicked(legPressSessionExercise);
-      viewModel.completeExerciseClicked(arnoldPressSessionExercise);
+    viewModel.completeExerciseClicked(legPressSessionExercise);
+    viewModel.completeExerciseClicked(arnoldPressSessionExercise);
 
-      async.flushMicrotasks();
-
-      verify(sessionFinishedCallback()).called(1);
-    });
+    verify(sessionFinishedCallback()).called(1);
   });
 
   test('finish workout when completes all exercises', () {
-    fakeAsync((async) {
-      viewModel.onViewInitialized(aWorkout);
+    viewModel.onViewInitialized(aWorkout);
 
-      viewModel.completeExerciseClicked(legPressSessionExercise);
-      viewModel.completeExerciseClicked(arnoldPressSessionExercise);
+    viewModel.completeExerciseClicked(legPressSessionExercise);
+    viewModel.completeExerciseClicked(arnoldPressSessionExercise);
 
-      async.flushMicrotasks();
+    verify(finishWorkout(any)).called(1);
+  });
 
-      verify(finishWorkout(any)).called(1);
-    });
+  test('update exercise load', () {
+    viewModel.addListener(callback);
+    viewModel.onViewInitialized(aWorkout);
+
+    viewModel.onNewLoadAdded(arnoldPressSessionExercise, newLoad);
+
+    viewModel.workoutSession.sessionExercises
+        .toList()[1]
+        .load()
+        .shouldBeEqualTo(newLoad);
+    verify(callback()).called(2);
   });
 }

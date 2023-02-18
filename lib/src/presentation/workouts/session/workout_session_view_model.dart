@@ -14,7 +14,7 @@ class WorkoutSessionViewModel with ChangeNotifier {
   WorkoutSessionViewModel(this._onSessionFinishedCallback, this._finishWorkoutSession);
 
   WorkoutSession _workoutSession = WorkoutSession.from(Workout("test", [
-    WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, "41kg")
+    WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, 41)
   ]));
 
   WorkoutSession get workoutSession => _workoutSession;
@@ -39,5 +39,10 @@ class WorkoutSessionViewModel with ChangeNotifier {
       _onSessionFinishedCallback();
       _finishWorkoutSession.call(workoutSession);
     }
+  }
+
+  void onNewLoadAdded(WorkoutSessionExercise exercise, int newLoad) {
+    exercise.updateLoad(newLoad);
+    notifyListeners();
   }
 }

@@ -1,13 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 
-@immutable
 class WorkoutExercise extends Exercise {
   final int sets;
   final int repetitions;
-  final String load;
+  int load;
 
   WorkoutExercise(ExerciseName name, ExerciseType type, this.sets, this.repetitions,
       this.load) : super(name, type) {
@@ -21,6 +19,10 @@ class WorkoutExercise extends Exercise {
     if (repetitions <= 0) {
       throw ArgumentError("invalid workout exercise, repetitions must be greater than zero");
     }
+  }
+
+  void updateLoad(int newLoad) {
+    this.load = newLoad;
   }
 
   @override

@@ -9,21 +9,21 @@ class GetWorkouts {
     return Future.value([
       Workout("Simple workout", [
         WorkoutExercise(
-            ExerciseName.legPress, ExerciseType.legs, 3, 12, "39kg"),
-        WorkoutExercise(ExerciseName.chestFly, ExerciseType.chest, 4, 8, "41kg"),
-        WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, "41kg")
+            ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
+        WorkoutExercise(ExerciseName.chestFly, ExerciseType.chest, 4, 8, 41),
+        WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, 41)
       ]),
       Workout("Legs workout", [
         WorkoutExercise(
-            ExerciseName.legPress, ExerciseType.legs, 3, 12, "39kg"),
+            ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
         WorkoutExercise(
-            ExerciseName.benchPress, ExerciseType.legs, 4, 8, "41kg"),
+            ExerciseName.benchPress, ExerciseType.legs, 4, 8, 41),
         WorkoutExercise(
-            ExerciseName.bicycleCrunch, ExerciseType.legs, 4, 8, "23kg"),
+            ExerciseName.bicycleCrunch, ExerciseType.legs, 4, 8, 23),
         WorkoutExercise(
-            ExerciseName.legExtension, ExerciseType.legs, 4, 8, "43kg"),
+            ExerciseName.legExtension, ExerciseType.legs, 4, 8, 43),
         WorkoutExercise(
-            ExerciseName.plank, ExerciseType.legs, 4, 8, "N/A"),
+            ExerciseName.plank, ExerciseType.legs, 4, 8, 0),
       ])
     ]);
   }

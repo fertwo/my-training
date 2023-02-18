@@ -1,8 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
 import 'package:mytraining/src/core/entities/exercise/exercise_type.dart';
 
-@immutable
 class Exercise {
   final ExerciseName name;
   final ExerciseType type;
