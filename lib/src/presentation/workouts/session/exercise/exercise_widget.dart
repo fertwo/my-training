@@ -53,14 +53,14 @@ class ExerciseWidget extends StatelessWidget {
                           child: _buildExerciseInfoWith(
                               _sessionExercise.repetitions().toString(),
                               "[Repetitions]")),
-                      GestureDetector(
-                        onTap: () {
-                          _showExerciseLoadDialog(context);
-                        },
-                        child: Expanded(
+                      Expanded(
                             flex: 20,
-                            child: _buildExerciseInfoWith(
-                                "${_sessionExercise.load()}Kg", "[Load]")),
+                            child: GestureDetector(
+                                onTap: () {
+                                  _showExerciseLoadDialog(context);
+                                },
+                                child: _buildExerciseInfoWith(
+                                "${_sessionExercise.load()}Kg", "[Load] +"))
                       ),
                       Expanded(
                           flex: 15,
@@ -93,7 +93,6 @@ class ExerciseWidget extends StatelessWidget {
 
   void _showExerciseLoadDialog(BuildContext context) {
     showDialog<String>(
-        barrierDismissible: false,
         context: context,
         builder: (BuildContext context) => ExerciseLoadDialog(_viewModel, _sessionExercise));
   }
