@@ -35,7 +35,7 @@ main() {
     sessionFinishedCallback = MockCallback();
     callback = MockCallback();
     finishWorkout = MockFinishWorkoutSession();
-    aWorkout = Workout("workoutTitle", exercises);
+    aWorkout = Workout(1, "workoutTitle", exercises);
     viewModel = WorkoutSessionViewModel(sessionFinishedCallback, finishWorkout);
   });
 

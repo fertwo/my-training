@@ -30,9 +30,9 @@ main() {
   WorkoutSessionExercise(heavyLegPress);
   setUp(() {
     exercises = [legPress, arnoldPress];
-    workout = Workout(workoutTitle, exercises);
+    workout = Workout(1, workoutTitle, exercises);
     workoutSession = WorkoutSession.from(workout);
-    workoutWithNoExercises = Workout(workoutTitle, const []);
+    workoutWithNoExercises = Workout(2, workoutTitle, const []);
   });
 
   test('a session starts with zero progress', () {
@@ -86,7 +86,7 @@ main() {
   });
 
   test('complete one set exercise from session', () {
-    workout = Workout(workoutTitle, [heavyLegPress, arnoldPress]);
+    workout = Workout(1, workoutTitle, [heavyLegPress, arnoldPress]);
     workoutSession = WorkoutSession.from(workout);
 
     workoutSession.completeSet(heavyLegPressSessionExercise);

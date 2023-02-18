@@ -4,10 +4,11 @@ import 'package:mytraining/src/core/error/duplicate_workout_exercise_error.dart'
 
 @immutable
 class Workout {
+  final int id;
   final String title;
   final List<WorkoutExercise> exercises;
 
-  Workout(this.title, this.exercises) {
+  Workout(this.id, this.title, this.exercises) {
     _validateWorkout();
   }
 
@@ -29,11 +30,8 @@ class Workout {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is Workout &&
-          runtimeType == other.runtimeType &&
-          title == other.title &&
-          exercises == other.exercises;
+      other is Workout && runtimeType == other.runtimeType && id == other.id;
 
   @override
-  int get hashCode => title.hashCode ^ exercises.hashCode;
+  int get hashCode => id.hashCode;
 }

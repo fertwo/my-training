@@ -13,7 +13,7 @@ class WorkoutSessionViewModel with ChangeNotifier {
 
   WorkoutSessionViewModel(this._onSessionFinishedCallback, this._finishWorkoutSession);
 
-  WorkoutSession _workoutSession = WorkoutSession.from(Workout("test", [
+  WorkoutSession _workoutSession = WorkoutSession.from(Workout(1, "test", [
     WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, 41)
   ]));
 

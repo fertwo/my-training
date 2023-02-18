@@ -7,13 +7,13 @@ class GetWorkouts {
   //TODO: Tests e implementacion real
   Future<List<Workout>> call() {
     return Future.value([
-      Workout("Simple workout", [
+      Workout(1, "Simple workout", [
         WorkoutExercise(
             ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
         WorkoutExercise(ExerciseName.chestFly, ExerciseType.chest, 4, 8, 41),
         WorkoutExercise(ExerciseName.plank, ExerciseType.abdomen, 4, 8, 41)
       ]),
-      Workout("Legs workout", [
+      Workout(2, "Legs workout", [
         WorkoutExercise(
             ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
         WorkoutExercise(

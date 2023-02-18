@@ -21,8 +21,8 @@ main() {
       WorkoutExercise(
           ExerciseName.benchPress, ExerciseType.shoulders, 3, 12, 20)
     ];
-    workoutWithNoExercises = Workout(aValidTitle, List.empty(growable: true));
-    aWorkout = Workout(aValidTitle, exercises);
+    workoutWithNoExercises = Workout(1, aValidTitle, List.empty(growable: true));
+    aWorkout = Workout(2, aValidTitle, exercises);
   });
 
   test('create a valid workout', () {
@@ -60,7 +60,7 @@ main() {
 
   test('can not create a workout with no title', () {
     try {
-      Workout(anEmptyTitle, exercises);
+      Workout(1, anEmptyTitle, exercises);
       assert(false);
     } catch (error) {
       assert(error is ArgumentError);
