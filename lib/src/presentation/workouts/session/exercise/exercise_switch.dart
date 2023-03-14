@@ -29,7 +29,7 @@ class _ExerciseSwitchWidgetState extends State<ExerciseSwitchWidget> {
   Widget build(BuildContext context) {
     return Switch(
       value: isSelected,
-      activeColor: AppColors.exerciseSwitchColor,
+      activeColor: AppColors.secondaryColor,
       onChanged: (bool value) {
         setState(() {
           isSelected = value;

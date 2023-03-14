@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
 import 'package:mytraining/src/presentation/workouts/all_workouts_page.dart';
+import 'package:mytraining/src/ui/app_colors.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,16 +48,16 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.accessibility_new),
             label: AppLocalizations.of(context).workouts,
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: AppColors.mainColorSoft
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.area_chart),
             label: 'My Stats',
-            backgroundColor: Colors.deepPurpleAccent,
+            backgroundColor: AppColors.mainColorSoft
           )
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: AppColors.secondaryColorStrong,
         onTap: _onItemTapped,
       ),
     );

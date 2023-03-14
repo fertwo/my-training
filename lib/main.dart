@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
 import 'package:mytraining/src/presentation/home/home_page.dart';
+import 'package:mytraining/src/ui/app_primary_material_color.dart';
 
 void main() {
   runApp(const MyTrainingApplication());
@@ -22,7 +23,7 @@ class MyTrainingApplication extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             theme: ThemeData(
-              primarySwatch: Colors.blue,
+              primarySwatch: MaterialColor(0xff737170, AppMaterialColors.primaryColor),
             ),
             localizationsDelegates: const [
               AppLocalizations.delegate,

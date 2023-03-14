@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
+import 'package:mytraining/src/ui/app_colors.dart';
 
 import '../../../../../l10n/app_localizations.dart';
 import '../workout_session_view_model.dart';
@@ -24,7 +25,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-          '[${widget._sessionExercise.name()}: ${AppLocalizations.of(context).update_load}]'),
+          widget._sessionExercise.name(), style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.mainBackgroundColor)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -49,7 +50,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
       actions: <Widget>[
         TextButton(
           onPressed: () => {_closeDialog(context)},
-          child: Text(AppLocalizations.of(context).cancel),
+          child: Text(AppLocalizations.of(context).cancel, style: const TextStyle(color: AppColors.secondaryColor, fontWeight: FontWeight.bold)),
         ),
         TextButton(
           onPressed: () {
@@ -57,7 +58,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
                 widget._sessionExercise, int.parse(_loadTextController.text));
             _closeDialog(context);
           },
-          child: Text(AppLocalizations.of(context).save),
+          child: Text(AppLocalizations.of(context).save, style: const TextStyle(color: AppColors.mainBackgroundColor, fontWeight: FontWeight.bold)),
         )
       ],
     );

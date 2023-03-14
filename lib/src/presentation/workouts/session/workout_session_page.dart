@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
 import 'package:mytraining/src/infrastructure/factory/actions_factory.dart';
@@ -6,6 +7,8 @@ import 'package:mytraining/src/presentation/home/home_page.dart';
 import 'package:mytraining/src/presentation/workouts/session/exercise/exercise_widget.dart';
 import 'package:mytraining/src/presentation/workouts/session/workout_session_view_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../../ui/app_colors.dart';
 
 class WorkoutSessionPage extends StatefulWidget {
   final Workout _workout;
@@ -32,8 +35,11 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ChangeNotifierProvider.value(
-            value: _workoutSessionViewModel, child: _buildExercisesList()));
+        backgroundColor: AppColors.mainBackgroundColor,
+        body: SafeArea(
+          child: ChangeNotifierProvider.value(
+              value: _workoutSessionViewModel, child: _buildExercisesList()),
+        ));
   }
 
   Widget _buildExercisesList() {
@@ -43,8 +49,11 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
           itemCount: widget._workout.exercises.length,
           addAutomaticKeepAlives: false,
           itemBuilder: (context, index) {
-            return ExerciseWidget(viewModel,
-                viewModel.workoutSession.sessionExercises.toList()[index]);
+            return Padding(
+              padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 10.h),
+              child: ExerciseWidget(viewModel,
+                  viewModel.workoutSession.sessionExercises.toList()[index]),
+            );
           });
     });
   }
@@ -56,12 +65,12 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
         builder: (BuildContext context) => WillPopScope(
               onWillPop: () async => false,
               child: AlertDialog(
-                title: Text(AppLocalizations.of(context).congratulations),
-                content: Text(AppLocalizations.of(context).workout_finished),
+                title: Text(AppLocalizations.of(context).congratulations, style: const TextStyle(color: AppColors.mainBackgroundColor, fontWeight: FontWeight.bold)),
+                content: Text(AppLocalizations.of(context).workout_finished, style: const TextStyle(color: AppColors.mainBackgroundColor)),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => _closePage(context),
-                    child: const Text('OK'),
+                    child: const Text('OK', style: TextStyle(color: AppColors.secondaryColor, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
