@@ -8,12 +8,12 @@ class WorkoutFactory {
     return [
       Workout(1, "Simple workout", [
         WorkoutExercise(
-            ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
+            ExerciseName.horizontalLegPress, ExerciseType.legs, 3, 12, 39),
         WorkoutExercise(ExerciseName.chestFly, ExerciseType.chest, 4, 8, 41)
       ]),
       Workout(2, "Legs workout", [
         WorkoutExercise(
-            ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
+            ExerciseName.horizontalLegPress, ExerciseType.legs, 3, 12, 39),
         WorkoutExercise(
             ExerciseName.benchPress, ExerciseType.legs, 4, 8, 41),
         WorkoutExercise(
@@ -25,7 +25,7 @@ class WorkoutFactory {
   static Workout createAWorkout({required String title}) {
     return Workout(1, title, [
       WorkoutExercise(
-          ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
+          ExerciseName.horizontalLegPress, ExerciseType.legs, 3, 12, 39),
       WorkoutExercise(ExerciseName.chestFly, ExerciseType.chest, 4, 8, 41)
     ]);
   }

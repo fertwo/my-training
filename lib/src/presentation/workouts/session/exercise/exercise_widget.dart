@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/presentation/workouts/session/exercise/exercise_load_dialog.dart';
 import 'package:mytraining/src/presentation/workouts/session/workout_session_view_model.dart';
 
+import '../../../../../l10n/app_localizations.dart';
 import '../../../../ui/app_colors.dart';
 import 'exercise_switch.dart';
 
@@ -41,18 +41,20 @@ class ExerciseWidget extends StatelessWidget {
                     children: [
                       Expanded(
                           flex: 25,
-                          child: Lottie.asset(
-                              "assets/lottie/workout_animation_example.json",
-                              width: 60.w)),
+                          child: Image.asset(
+                              "assets/images/barbell.png",
+                              fit: BoxFit.scaleDown,
+                              width: 40.w,
+                              height: 40.w)),
                       Expanded(
                           flex: 20,
                           child: _buildExerciseInfoWith(
-                              _sessionExercise.sets().toString(), "[Sets]")),
+                              _sessionExercise.sets().toString(), AppLocalizations.of(context).sets)),
                       Expanded(
                           flex: 20,
                           child: _buildExerciseInfoWith(
                               _sessionExercise.repetitions().toString(),
-                              "[Repetitions]")),
+                              AppLocalizations.of(context).repetitions)),
                       Expanded(
                             flex: 20,
                             child: GestureDetector(
@@ -60,7 +62,7 @@ class ExerciseWidget extends StatelessWidget {
                                   _showExerciseLoadDialog(context);
                                 },
                                 child: _buildExerciseInfoWith(
-                                "${_sessionExercise.load()}Kg", "[Load] +"))
+                                "${_sessionExercise.load()}Kg", "${AppLocalizations.of(context).load} +"))
                       ),
                       Expanded(
                           flex: 15,
@@ -82,11 +84,12 @@ class ExerciseWidget extends StatelessWidget {
       children: [
         AutoSizeText(value,
             maxLines: 1,
+            minFontSize: 10,
             style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold)),
         SizedBox(height: 10.h),
         Padding(
             padding: EdgeInsets.only(left: 8.w, right: 8.w),
-            child: AutoSizeText(info, maxLines: 1)),
+            child: AutoSizeText(info, maxLines: 1, minFontSize: 10,)),
       ],
     );
   }

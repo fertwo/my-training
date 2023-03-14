@@ -21,7 +21,6 @@ class MyTrainingApplication extends StatelessWidget {
         minTextAdapt: true,
         builder: (context, child) {
           return MaterialApp(
-            title: 'My training',
             theme: ThemeData(
               primarySwatch: Colors.blue,
             ),
@@ -31,6 +30,7 @@ class MyTrainingApplication extends StatelessWidget {
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,
             ],
+            onGenerateTitle: (BuildContext context) => AppLocalizations.of(context).my_training_app_name,
             supportedLocales: const [Locale('en', ''), Locale('es', '')],
             home: const HomePage(),
           );

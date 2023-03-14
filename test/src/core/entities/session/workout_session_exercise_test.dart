@@ -10,9 +10,9 @@ main() {
   const repetitions = 12;
   const sets = 2;
   final workoutExercise = WorkoutExercise(
-      ExerciseName.legPress, ExerciseType.olympic, sets, repetitions, 30);
+      ExerciseName.horizontalLegPress, ExerciseType.olympic, sets, repetitions, 30);
   final workoutExerciseWithDifferentLoad = WorkoutExercise(
-      ExerciseName.legPress, ExerciseType.olympic, sets, repetitions, 20);
+      ExerciseName.horizontalLegPress, ExerciseType.olympic, sets, repetitions, 20);
   const fullProgress = 1.0;
 
   setUp(() {

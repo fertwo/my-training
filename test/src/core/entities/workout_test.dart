@@ -17,7 +17,7 @@ main() {
   setUp(() {
     exercises = [
       WorkoutExercise(
-          ExerciseName.legPress, ExerciseType.olympic, 3, 12, 30),
+          ExerciseName.horizontalLegPress, ExerciseType.olympic, 3, 12, 30),
       WorkoutExercise(
           ExerciseName.benchPress, ExerciseType.shoulders, 3, 12, 20)
     ];

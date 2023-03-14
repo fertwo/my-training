@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mytraining/l10n/app_localizations.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
 import 'package:mytraining/src/infrastructure/factory/actions_factory.dart';
 import 'package:mytraining/src/presentation/formatter/workout_formatter.dart';
@@ -74,18 +75,18 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                   children: [
                     Column(children: [
                       Text("${workout.exercises.length}", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
-                      Text("[exercises]", style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold))
+                      Text(AppLocalizations.of(context).exercises, style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold))
                     ]),
                     Expanded(
                         child: Column(
                       children: [
-                        Text("[Muscles]",
+                        Text(AppLocalizations.of(context).muscles,
                             style: TextStyle(
                                 fontSize: 13.sp, fontWeight: FontWeight.bold)),
                         SizedBox(height: 10.h),
                         Padding(
                           padding: EdgeInsets.only(left: 8.w, right: 8.w),
-                          child: Text(WorkoutFormatter.getExerciseTypesFrom(workout)),
+                          child: Text(WorkoutFormatter.getExerciseTypesFrom(workout, AppLocalizations.of(context))),
                         )
                       ],
                     ))

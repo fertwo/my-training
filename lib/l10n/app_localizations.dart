@@ -36,6 +36,28 @@ abstract class AppLocalizations {
   ];
 
   String get my_training_app_name;
+  String get sets;
+  String get repetitions;
+  String get load;
+  String get update_load;
+  String get set_desired_load;
+  String get cancel;
+  String get save;
+  String get congratulations;
+  String get workout_finished;
+  String get exercises;
+  String get muscles;
+  String get abdomen;
+  String get arms;
+  String get back;
+  String get cardio;
+  String get chest;
+  String get core;
+  String get fullBody;
+  String get legs;
+  String get olympic;
+  String get shoulders;
+  String get workouts;
 }
 
 class _AppLocalizationsDelegate

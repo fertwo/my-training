@@ -9,7 +9,7 @@ import 'package:mytraining/src/infrastructure/repository/stub_workout_repository
 main() {
   late StubWorkoutRepository repository;
   final newWorkout = Workout(21, "Legs workout", [
-    WorkoutExercise(ExerciseName.legPress, ExerciseType.legs, 3, 12, 39),
+    WorkoutExercise(ExerciseName.horizontalLegPress, ExerciseType.legs, 3, 12, 39),
     WorkoutExercise(ExerciseName.benchPress, ExerciseType.legs, 4, 8, 41),
     WorkoutExercise(ExerciseName.bicycleCrunch, ExerciseType.legs, 4, 8, 23),
     WorkoutExercise(ExerciseName.legExtension, ExerciseType.legs, 4, 8, 43),
@@ -17,7 +17,7 @@ main() {
   ]);
 
   final editedWorkout = Workout(21, "Low body workout", [
-    WorkoutExercise(ExerciseName.legPress, ExerciseType.legs, 3, 12, 2),
+    WorkoutExercise(ExerciseName.horizontalLegPress, ExerciseType.legs, 3, 12, 2),
     WorkoutExercise(ExerciseName.benchPress, ExerciseType.legs, 4, 8, 11),
     WorkoutExercise(ExerciseName.bicycleCrunch, ExerciseType.legs, 4, 8, 22),
     WorkoutExercise(ExerciseName.legExtension, ExerciseType.legs, 4, 8, 3),

@@ -14,7 +14,7 @@ import '../../mocks/mock_callback.dart';
 main() {
   late WorkoutSessionViewModel viewModel;
   final WorkoutExercise legPress = WorkoutExercise(
-      ExerciseName.legPress, ExerciseType.olympic, 1, 2, 30);
+      ExerciseName.horizontalLegPress, ExerciseType.olympic, 1, 2, 30);
   final WorkoutExercise arnoldPress = WorkoutExercise(
       ExerciseName.arnoldPress, ExerciseType.shoulders, 1, 2, 30);
   const newLoad = 88;

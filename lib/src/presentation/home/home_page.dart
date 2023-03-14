@@ -36,18 +36,20 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).my_training_app_name),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: SafeArea(
+        child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.accessibility_new),
-            label: 'Workouts',
+            icon: const Icon(Icons.accessibility_new),
+            label: AppLocalizations.of(context).workouts,
             backgroundColor: Colors.blueAccent,
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.area_chart),
             label: 'My Stats',
             backgroundColor: Colors.deepPurpleAccent,

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 
+import '../../../../../l10n/app_localizations.dart';
 import '../workout_session_view_model.dart';
 
 class ExerciseLoadDialog extends StatefulWidget {
@@ -22,13 +23,14 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('[${widget._sessionExercise.name()}: Update load]'),
+      title: Text(
+          '[${widget._sessionExercise.name()}: ${AppLocalizations.of(context).update_load}]'),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Align(
+          Align(
               alignment: Alignment.centerLeft,
-              child: Text('[Set desired load for exercise]')),
+              child: Text(AppLocalizations.of(context).set_desired_load)),
           SizedBox(height: 18.h),
           TextField(
             controller: _loadTextController,
@@ -37,9 +39,9 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
               FilteringTextInputFormatter.digitsOnly
             ],
             keyboardType: TextInputType.number,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Load (KG)',
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              hintText: '${AppLocalizations.of(context).load} (KG)',
             ),
           )
         ],
@@ -47,7 +49,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
       actions: <Widget>[
         TextButton(
           onPressed: () => {_closeDialog(context)},
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).cancel),
         ),
         TextButton(
           onPressed: () {
@@ -55,7 +57,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
                 widget._sessionExercise, int.parse(_loadTextController.text));
             _closeDialog(context);
           },
-          child: const Text('Save'),
+          child: Text(AppLocalizations.of(context).save),
         )
       ],
     );

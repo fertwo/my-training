@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mytraining/l10n/app_localizations.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
 import 'package:mytraining/src/infrastructure/factory/actions_factory.dart';
 import 'package:mytraining/src/presentation/home/home_page.dart';
@@ -55,8 +56,8 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
         builder: (BuildContext context) => WillPopScope(
               onWillPop: () async => false,
               child: AlertDialog(
-                title: const Text('[Congratulations]'),
-                content: const Text('[Workout finished!!]'),
+                title: Text(AppLocalizations.of(context).congratulations),
+                content: Text(AppLocalizations.of(context).workout_finished),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => _closePage(context),

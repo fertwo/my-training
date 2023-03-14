@@ -1,13 +1,26 @@
 enum ExerciseName {
   arnoldPress,
+  backExtension,
   benchPress,
+  bicepCurlDumbbell,
   bicycleCrunch,
   chestDip,
   chestFly,
+  chestPress,
   crunch,
+  gobletSquatWithKettlebell,
   hammerCurl,
+  horizontalLegPress,
+  inclineBenchPressWithDumbbell,
+  latPullDownWideGripWithCable,
+  lyingLegCurl,
   legExtension,
-  legPress,
+  legPress45Degrees,
+  overheadPressWithDumbbell,
   plank,
-  pushUp
+  pushUp,
+  seatedLegPress,
+  standingCalfRaise,
+  splitSquatWithKettlebell,
+  tricepsExtensionWithDumbbell
 }
