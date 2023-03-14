@@ -29,13 +29,13 @@ main() {
   });
 
   test('start with initial content', () {
-    repository.getAll().length.shouldBeEqualTo(2);
+    repository.getAll().length.shouldBeEqualTo(3);
   });
 
   test('save new exercise', () {
     repository.save(newWorkout);
 
-    repository.getAll().length.shouldBeEqualTo(3);
+    repository.getAll().length.shouldBeEqualTo(4);
   });
 
   test('update exercise', () {
@@ -43,7 +43,7 @@ main() {
 
     repository.save(editedWorkout);
 
-    repository.getAll().length.shouldBeEqualTo(3);
-    repository.getAll()[2].shouldBeEqualTo(editedWorkout);
+    repository.getAll().length.shouldBeEqualTo(4);
+    repository.getAll()[3].shouldBeEqualTo(editedWorkout);
   });
 }
