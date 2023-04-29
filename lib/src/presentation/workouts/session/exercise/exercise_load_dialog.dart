@@ -25,7 +25,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(
-          widget._sessionExercise.name(), style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.mainBackgroundColor)),
+          widget._sessionExercise.name(), style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.blueSky)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -50,7 +50,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
       actions: <Widget>[
         TextButton(
           onPressed: () => {_closeDialog(context)},
-          child: Text(AppLocalizations.of(context).cancel, style: const TextStyle(color: AppColors.secondaryColor, fontWeight: FontWeight.bold)),
+          child: Text(AppLocalizations.of(context).cancel, style: const TextStyle(color: AppColors.softBlack, fontWeight: FontWeight.bold)),
         ),
         TextButton(
           onPressed: () {
@@ -58,7 +58,7 @@ class _ExerciseLoadDialogState extends State<ExerciseLoadDialog> {
                 widget._sessionExercise, int.parse(_loadTextController.text));
             _closeDialog(context);
           },
-          child: Text(AppLocalizations.of(context).save, style: const TextStyle(color: AppColors.mainBackgroundColor, fontWeight: FontWeight.bold)),
+          child: Text(AppLocalizations.of(context).save, style: const TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
         )
       ],
     );

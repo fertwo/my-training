@@ -30,7 +30,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.mainBackgroundColor,
+        backgroundColor: AppColors.softWhite,
         floatingActionButton: _buildFloatingActionButton(context),
         body: ChangeNotifierProvider.value(
             value: _workoutsViewModel,
@@ -54,7 +54,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
 
   Card _buildWorkoutCard(Workout workout) {
     return Card(
-      color: Colors.white38,
+      color: AppColors.strongWhite,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
       ),
@@ -62,7 +62,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        splashColor: AppColors.mainBackgroundColor,
+        splashColor: Colors.grey,
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -77,7 +77,7 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
             children: [
               Text(workout.title,
                   style:
-                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: Colors.white70)),
+                      TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.blueSky)),
               Padding(
                 padding: EdgeInsets.only(top: 18.h),
                 child: Row(
@@ -85,22 +85,22 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
                     Column(children: [
                       Text("${workout.exercises.length}",
                           style: TextStyle(
-                              fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.secondaryColor)),
+                              fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.blueSky)),
                       Text(AppLocalizations.of(context).exercises,
                           style: TextStyle(
-                              fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.secondaryColorSoft))
+                              fontSize: 16.sp, fontWeight: FontWeight.bold, color: AppColors.blueSky))
                     ]),
                     Expanded(
                         child: Column(
                       children: [
                         Text(AppLocalizations.of(context).muscles,
                             style: TextStyle(
-                                fontSize: 13.sp, fontWeight: FontWeight.bold, color: AppColors.secondaryColor)),
+                                fontSize: 13.sp, fontWeight: FontWeight.bold, color: AppColors.blueSky)),
                         SizedBox(height: 10.h),
                         Padding(
                           padding: EdgeInsets.only(left: 8.w, right: 8.w),
                           child: Text(WorkoutFormatter.getExerciseTypesFrom(
-                              workout, AppLocalizations.of(context)), style: const TextStyle(color: AppColors.secondaryColorSoft)),
+                              workout, AppLocalizations.of(context)), style: const TextStyle(color: AppColors.softBlack)),
                         )
                       ],
                     ))
@@ -123,8 +123,8 @@ class _WorkoutsPageState extends State<WorkoutsPage> {
           ),
         );
       },
-      backgroundColor: AppColors.secondaryColor,
-      foregroundColor: AppColors.mainBackgroundColor,
+      backgroundColor: AppColors.blueSky,
+      foregroundColor: AppColors.softWhite,
       child: const Icon(Icons.add),
     );
   }

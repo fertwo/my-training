@@ -19,7 +19,7 @@ class ExerciseWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: AppColors.mainColorSoft,
+      color: AppColors.strongWhite,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
@@ -27,7 +27,7 @@ class ExerciseWidget extends StatelessWidget {
         customBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        splashColor: AppColors.mainBackgroundColor,
+        splashColor: AppColors.strongWhite,
         onTap: () {
           //TODO: ir a detalle de ejercicio de la sesion
         },
@@ -38,7 +38,7 @@ class ExerciseWidget extends StatelessWidget {
             children: [
               Text(_sessionExercise.name(),
                   style: TextStyle(
-                      color: AppColors.secondaryColor,
+                      color: AppColors.blueSky,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.bold)),
               Padding(
@@ -93,11 +93,11 @@ class ExerciseWidget extends StatelessWidget {
         AutoSizeText(value,
             maxLines: 1,
             minFontSize: 10,
-            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold, color: Colors.white70)),
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.bold, color: Colors.black)),
         SizedBox(height: 10.h),
         Padding(
             padding: EdgeInsets.only(left: 8.w, right: 8.w),
-            child: AutoSizeText(info, maxLines: 1, minFontSize: 10, style: const TextStyle(color: AppColors.secondaryColorSoft),)),
+            child: AutoSizeText(info, maxLines: 1, minFontSize: 10, style: const TextStyle(color: Colors.black54),)),
       ],
     );
   }

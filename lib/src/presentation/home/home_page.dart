@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).my_training_app_name),
+        backgroundColor: AppColors.blueSky,
+        title: Center(child: Text(AppLocalizations.of(context).my_training_app_name)),
       ),
       body: SafeArea(
         child: Center(
@@ -44,20 +45,22 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
+        unselectedItemColor: AppColors.softBlack,
+        elevation: 10,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.accessibility_new),
             label: AppLocalizations.of(context).workouts,
-            backgroundColor: AppColors.mainColorSoft
+            backgroundColor: AppColors.strongWhite,
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.area_chart),
             label: 'My Stats',
-            backgroundColor: AppColors.mainColorSoft
+            backgroundColor: AppColors.strongWhite
           )
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.secondaryColorStrong,
+        selectedItemColor: AppColors.strongBlack,
         onTap: _onItemTapped,
       ),
     );

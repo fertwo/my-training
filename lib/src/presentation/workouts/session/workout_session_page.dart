@@ -35,7 +35,7 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.mainBackgroundColor,
+        backgroundColor: AppColors.softWhite,
         body: SafeArea(
           child: ChangeNotifierProvider.value(
               value: _workoutSessionViewModel, child: _buildExercisesList()),
@@ -65,12 +65,12 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
         builder: (BuildContext context) => WillPopScope(
               onWillPop: () async => false,
               child: AlertDialog(
-                title: Text(AppLocalizations.of(context).congratulations, style: const TextStyle(color: AppColors.mainBackgroundColor, fontWeight: FontWeight.bold)),
-                content: Text(AppLocalizations.of(context).workout_finished, style: const TextStyle(color: AppColors.mainBackgroundColor)),
+                title: Text(AppLocalizations.of(context).congratulations, style: const TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
+                content: Text(AppLocalizations.of(context).workout_finished, style: const TextStyle(color: AppColors.strongBlack)),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => _closePage(context),
-                    child: const Text('OK', style: TextStyle(color: AppColors.secondaryColor, fontWeight: FontWeight.bold)),
+                    child: const Text('OK', style: TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
                   ),
                 ],
               ),
