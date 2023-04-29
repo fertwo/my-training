@@ -58,6 +58,30 @@ abstract class AppLocalizations {
   String get olympic;
   String get shoulders;
   String get workouts;
+  String get arnoldPress;
+  String get backExtension;
+  String get benchPress;
+  String get bicepCurlDumbbell;
+  String get bicycleCrunch;
+  String get chestDip;
+  String get chestFly;
+  String get chestPress;
+  String get crunch;
+  String get gobletSquatWithKettlebell;
+  String get hammerCurl;
+  String get horizontalLegPress;
+  String get inclineBenchPressWithDumbbell;
+  String get latPullDownWideGripWithCable;
+  String get lyingLegCurl;
+  String get legExtension;
+  String get legPress45Degrees;
+  String get overheadPressWithDumbbell;
+  String get plank;
+  String get pushUp;
+  String get seatedLegPress;
+  String get standingCalfRaise;
+  String get splitSquatWithKettlebell;
+  String get tricepsExtensionWithDumbbell;
 }
 
 class _AppLocalizationsDelegate

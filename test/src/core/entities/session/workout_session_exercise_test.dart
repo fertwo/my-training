@@ -40,21 +40,21 @@ main() {
   });
 
   test('test equals', () {
-    WorkoutSessionExercise sameExercise =
+    final WorkoutSessionExercise sameExercise =
         WorkoutSessionExercise(workoutExercise);
 
     sessionExercise.shouldBeEqualTo(sameExercise);
   });
 
   test('session exercises are the same if workout exercise is the same ', () {
-    WorkoutSessionExercise sameExercise =
+    final WorkoutSessionExercise sameExercise =
         WorkoutSessionExercise(workoutExercise);
 
     sessionExercise.shouldBeEqualTo(sameExercise);
   });
 
   test('session exercises are not the same if workout load is different', () {
-    WorkoutSessionExercise otherExercise =
+    final WorkoutSessionExercise otherExercise =
         WorkoutSessionExercise(workoutExerciseWithDifferentLoad);
 
     sessionExercise.shouldNotBeEqualTo(otherExercise);

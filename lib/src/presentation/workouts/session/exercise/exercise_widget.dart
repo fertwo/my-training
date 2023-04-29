@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mytraining/src/core/entities/session/workout_session_exercise.dart';
 import 'package:mytraining/src/presentation/workouts/session/exercise/exercise_load_dialog.dart';
+import 'package:mytraining/src/presentation/workouts/session/exercise/exercise_name_mapper.dart';
 import 'package:mytraining/src/presentation/workouts/session/workout_session_view_model.dart';
 
 import '../../../../../l10n/app_localizations.dart';
@@ -36,7 +37,7 @@ class ExerciseWidget extends StatelessWidget {
               EdgeInsets.only(left: 8.w, right: 8.w, top: 12.h, bottom: 12.h),
           child: Column(
             children: [
-              Text(_sessionExercise.name(),
+              Text(ExerciseNameMapper.getNameFor(_sessionExercise.exerciseName(), context),
                   style: TextStyle(
                       color: AppColors.blueSky,
                       fontSize: 16.sp,
@@ -44,7 +45,6 @@ class ExerciseWidget extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 8.h),
                 child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(

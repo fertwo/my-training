@@ -8,7 +8,7 @@ main() {
   const exerciseName = ExerciseName.horizontalLegPress;
 
   test('create a valid exercise', () {
-    exercise = Exercise(exerciseName, ExerciseType.core);
+    exercise = const Exercise(exerciseName, ExerciseType.core);
 
     assert(exercise.name == exerciseName);
     assert(exercise.type == ExerciseType.core);

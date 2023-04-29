@@ -59,7 +59,7 @@ class WorkoutSession {
   }
 
   void _updateSessionProgress() {
-    double globalProgress = _progressList().reduce((value, element) => value + element);
+    final double globalProgress = _progressList().reduce((value, element) => value + element);
     _sessionProgress = globalProgress / sessionExercises.length;
   }
 

@@ -13,9 +13,9 @@ main() {
   late Workout workout;
   late Workout workoutWithNoExercises;
   late List<WorkoutExercise> exercises;
-  double quarterProgress = 0.25;
-  double halfProgress = 0.5;
-  double fullProgress = 1;
+  const double quarterProgress = 0.25;
+  const double halfProgress = 0.5;
+  const double fullProgress = 1;
   final WorkoutExercise heavyLegPress = WorkoutExercise(
       ExerciseName.horizontalLegPress, ExerciseType.olympic, 2, 2, 30);
   final WorkoutExercise legPress = WorkoutExercise(

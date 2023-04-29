@@ -1,3 +1,4 @@
+import 'package:mytraining/src/core/entities/exercise/exercise_name.dart';
 import 'package:mytraining/src/core/entities/session/exercise_progress.dart';
 import 'package:mytraining/src/core/entities/workout/workout_exercise.dart';
 
@@ -10,6 +11,8 @@ class WorkoutSessionExercise {
   }
 
   String name() => _workoutExercise.name.name;
+
+  ExerciseName exerciseName() => _workoutExercise.name;
 
   int repetitions() => _workoutExercise.repetitions;
 

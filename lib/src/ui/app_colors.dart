@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color mainBackgroundColor = Color.fromARGB(255, 51, 50, 49);
   static const Color softWhite = Color.fromARGB(255, 223, 226, 232);
   static const Color strongWhite = Color.fromARGB(255, 245, 247, 250);
   static const Color blueSky = Color.fromARGB(255, 83, 129, 219);

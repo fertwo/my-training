@@ -22,7 +22,7 @@ class WorkoutExercise extends Exercise {
   }
 
   void updateLoad(int newLoad) {
-    this.load = newLoad;
+    load = newLoad;
   }
 
   @override

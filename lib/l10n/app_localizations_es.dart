@@ -18,7 +18,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get load => "Peso";
 
   @override
-  String get repetitions => "Repeticiones";
+  String get repetitions => "Reps";
 
   @override
   String get save => "Guardar";
@@ -73,4 +73,76 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get workouts => "Entrenamientos";
+
+  @override
+  String get arnoldPress => "Arnold Press";
+
+  @override
+  String get backExtension => "Back Extension";
+
+  @override
+  String get benchPress => "Bench Press";
+
+  @override
+  String get bicepCurlDumbbell => "Bicep Curl with Dumbbell";
+
+  @override
+  String get bicycleCrunch => "Bicycle Crunch";
+
+  @override
+  String get chestDip => "Chest Dip";
+
+  @override
+  String get chestFly => "Chest Fly";
+
+  @override
+  String get chestPress => "Chest Press";
+
+  @override
+  String get crunch => "Crunch";
+
+  @override
+  String get gobletSquatWithKettlebell => "Goblet Squat w/Kettlebell";
+
+  @override
+  String get hammerCurl => "Hammer Curl";
+
+  @override
+  String get horizontalLegPress => "Horizontal Leg Press";
+
+  @override
+  String get inclineBenchPressWithDumbbell => "Inclined Bench Press w/Dumbbell";
+
+  @override
+  String get latPullDownWideGripWithCable => "Lat Pull Down Wide Grip w/Cable";
+
+  @override
+  String get legExtension => "Leg Extension";
+
+  @override
+  String get legPress45Degrees => "Leg Press 45°";
+
+  @override
+  String get lyingLegCurl => "Lying Leg Curl";
+
+  @override
+  String get overheadPressWithDumbbell => "Overhead Press w/Dumbbell";
+
+  @override
+  String get plank => "Plank";
+
+  @override
+  String get pushUp => "Push Up";
+
+  @override
+  String get seatedLegPress => "Seated Leg Press";
+
+  @override
+  String get splitSquatWithKettlebell => "Split Squat w/Kettlebell";
+
+  @override
+  String get standingCalfRaise => "Standing Calf Raise";
+
+  @override
+  String get tricepsExtensionWithDumbbell => "Triceps Extension w/Dumbbell";
 }

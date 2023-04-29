@@ -20,7 +20,7 @@ main() {
     exerciseProgress = ExerciseProgress(threeSets);
 
     exerciseProgress.setsAmount().shouldBeEqualTo(3);
-    for (var currentStatus in exerciseProgress.getSets()) {
+    for (final currentStatus in exerciseProgress.getSets()) {
       currentStatus.shouldBeEqualTo(SetStatus.pending);
     }
   });
@@ -52,7 +52,7 @@ main() {
 
     exerciseProgress.completeSet();
 
-    for (var currentStatus in exerciseProgress.getSets()) {
+    for (final currentStatus in exerciseProgress.getSets()) {
       currentStatus.shouldBeEqualTo(SetStatus.completed);
     }
   });

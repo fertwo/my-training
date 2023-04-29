@@ -35,24 +35,27 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          leading: const BackButton(),
+          backgroundColor: AppColors.blueSky,
+          title: Center(child: Padding(padding: EdgeInsets.only(right: 34.w), child: Text(widget._workout.title))),
+        ),
         backgroundColor: AppColors.softWhite,
         body: SafeArea(
-          child: ChangeNotifierProvider.value(
-              value: _workoutSessionViewModel, child: _buildExercisesList()),
+          child: ChangeNotifierProvider.value(value: _workoutSessionViewModel, child: _buildExercisesList()),
         ));
   }
 
   Widget _buildExercisesList() {
-    return Consumer<WorkoutSessionViewModel>(
-        builder: (BuildContext context, viewModel, Widget? child) {
+    return Consumer<WorkoutSessionViewModel>(builder: (BuildContext context, viewModel, Widget? child) {
       return ListView.builder(
+          padding: EdgeInsets.only(bottom: 16.h),
           itemCount: widget._workout.exercises.length,
           addAutomaticKeepAlives: false,
           itemBuilder: (context, index) {
             return Padding(
               padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 10.h),
-              child: ExerciseWidget(viewModel,
-                  viewModel.workoutSession.sessionExercises.toList()[index]),
+              child: ExerciseWidget(viewModel, viewModel.workoutSession.sessionExercises.toList()[index]),
             );
           });
     });
@@ -65,8 +68,10 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
         builder: (BuildContext context) => WillPopScope(
               onWillPop: () async => false,
               child: AlertDialog(
-                title: Text(AppLocalizations.of(context).congratulations, style: const TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
-                content: Text(AppLocalizations.of(context).workout_finished, style: const TextStyle(color: AppColors.strongBlack)),
+                title: Text(AppLocalizations.of(context).congratulations,
+                    style: const TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
+                content: Text(AppLocalizations.of(context).workout_finished,
+                    style: const TextStyle(color: AppColors.strongBlack)),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () => _closePage(context),
@@ -78,8 +83,7 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
   }
 
   void _closePage(BuildContext context) {
-    Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (BuildContext context) {
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context) {
       return const HomePage();
     }), (r) {
       return false;
