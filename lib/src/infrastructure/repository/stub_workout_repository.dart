@@ -28,7 +28,16 @@ class StubWorkoutRepository implements WorkoutRepository {
       WorkoutExercise(ExerciseName.hammerCurl, ExerciseType.arms, 3, 8, 6),
     ]),
     Workout(3, "Mixto", [
-      WorkoutExercise(ExerciseName.seatedLegPress, ExerciseType.legs, 4, 10, 59)
+      WorkoutExercise(ExerciseName.seatedLegPress, ExerciseType.legs, 4, 10, 59),
+      WorkoutExercise(ExerciseName.gobletSquatWithKettlebell, ExerciseType.legs, 4, 10, 16),
+      WorkoutExercise(ExerciseName.lyingLegCurl, ExerciseType.legs, 3, 10, 29),
+      WorkoutExercise(ExerciseName.inclineBenchPressWithDumbbell, ExerciseType.chest, 4, 10, 12),
+      WorkoutExercise(ExerciseName.latPullDownWideGripWithCable, ExerciseType.back, 4, 10, 41),
+      WorkoutExercise(ExerciseName.chestPress, ExerciseType.chest, 3, 10, 45),
+      WorkoutExercise(ExerciseName.overheadPressWithDumbbell, ExerciseType.shoulders, 4, 10, 9),
+      WorkoutExercise(ExerciseName.tricepsExtensionWithDumbbell, ExerciseType.arms, 4, 12, 15),
+      WorkoutExercise(ExerciseName.bicepCurlDumbbell, ExerciseType.arms, 3, 10, 6),
+      WorkoutExercise(ExerciseName.hammerCurl, ExerciseType.arms, 3, 8, 6),
     ])
   ];
 
