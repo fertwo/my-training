@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:mytraining/l10n/app_localizations.dart';
 import 'package:mytraining/src/core/entities/workout/workout.dart';
 import 'package:mytraining/src/infrastructure/factory/actions_factory.dart';
@@ -68,8 +69,15 @@ class _WorkoutSessionPageState extends State<WorkoutSessionPage> {
         builder: (BuildContext context) => WillPopScope(
               onWillPop: () async => false,
               child: AlertDialog(
-                title: Text(AppLocalizations.of(context).congratulations,
-                    style: const TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(AppLocalizations.of(context).congratulations,
+                        style: const TextStyle(color: AppColors.blueSky, fontWeight: FontWeight.bold)),
+                    Lottie.asset("assets/lottie/congratulations.json",
+                        height: 50.h, fit: BoxFit.fitHeight, repeat: false)
+                  ],
+                ),
                 content: Text(AppLocalizations.of(context).workout_finished,
                     style: const TextStyle(color: AppColors.strongBlack)),
                 actions: <Widget>[
